@@ -1,0 +1,86 @@
+[
+    {
+        "name": "我的电脑",
+        "isDir": true,
+        "children": [
+            {
+                "name": "c:",
+                "isDir": true,
+                "children": [
+                    {
+                        "name": "a.txt",
+                        "isDir": false
+                    },
+                    {
+                        "name": "常用",
+                        "isDir": true,
+                        "children": [
+                            {
+                                "name": "b.txt",
+                                "isDir": false
+                            },
+                            {
+                                "name": "c.html",
+                                "isDir": false
+                            }
+                        ]
+                    },
+                    {
+                        "name": "程序",
+                        "isDir": true,
+                        "children": [
+                            {
+                                "name": "教学.doc",
+                                "isDir": false
+                            },
+                            {
+                                "name": "demo",
+                                "isDir": true,
+                                "children": [
+                                    {
+                                        "name": "base.js",
+                                        "isDir": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "d:",
+                "isDir": true,
+                "children": [
+                    {
+                        "name": "影音",
+                        "isDir": true,
+                        "children": [
+                            {
+                                "name": "金刚.rmvb",
+                                "isDir": false
+                            },
+                            {
+                                "name": "冰河时代.rm",
+                                "isDir": false
+                            }
+                        ]
+                    },
+                    {
+                        "name": "游戏",
+                        "isDir": true,
+                        "children": [
+                            {
+                                "name": "LOL.exe",
+                                "isDir": false
+                            },
+                            {
+                                "name": "俄罗斯方块.apk",
+                                "isDir": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
