@@ -34,7 +34,7 @@ var options = {
 gulp.task('server', function() {
     gulp.src('src')
         .pipe(server({
-            port: 8080,
+            port: 9090,
             livereload: true,
             open: true,
             middleware: function(req, res, next) {

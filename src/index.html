@@ -11,9 +11,61 @@
 
 <body>
     <div class="wrap">
-        qwer
+        <!-- <div>
+            <span>-</span>我的电脑
+            <ul>
+                <span>-</span>c:
+                <li>a.txt</li>
+                <li><span>-</span>常用
+                    <em>b.txt</em>
+                    <em>c.html</em>
+                </li>
+                <li><span>-</span>程序
+                    <em>教学.doc</em>
+                    <em>
+                        <span>-</span>demo
+                        <b>base.js</b>
+                    </em>
+                </li>
+            </ul>
+            <ul>
+                <span>-</span>d:
+                <li>
+                    <span>-</span>影音：
+                    <em>金刚.rmvb</em>
+                    <em>冰河时代.rm</em>
+                </li>
+                <li>
+                    <span>-</span>游戏：
+                    <em>LOL.exe</em>
+                </li>
+            </ul>
+        </div> -->
+        <!-- {{#each this}}
+        <div>
+            {{this}}
+        </div>
+        {{/each}} -->
+
+
     </div>
-    <script type='text/x-handlebars-compile'></script>
+    <script type='text/x-handlebars-compile' id='handle'>
+        {{#each this}}
+        <div>
+            <span>-</span>{{this.name}}{{#if this.isDir}} {{#each this.children}}
+            <ul><span>-</span>{{this.name}}{{#if this.isDir}} {{#each this.children}}
+
+                <li>
+                    <span>-</span> {{this.name}} {{#if this.isDir}} {{#each this.children}}
+                    <em>{{this.name}}</em> {{#if this.isDir}} {{#each this.children}}
+                    <b>{{this.name}}</b> {{/each}}{{else}} {{!b的结尾}} {{/if}}{{/each}}{{else}} {{!em的结尾}}{{/if}}
+                    <li>
+                        {{/each}}{{else}}{{/if}}{{!li的结尾}}
+            </ul>
+            {{/each}} {{/if}}{{else}}{{!ul的结尾}}
+        </div>
+        {{/each}}
+    </script>
 </body>
 <script src='js/jquery-2.1.1.min.js'></script>
 <script src='js/handlebars-v4.0.11.js'></script>
@@ -22,7 +74,22 @@
         url: '/login',
         success: function(data) {
             var data = JSON.parse(data)
-            console.log(data)
+            var handle = $('#handle');
+            var source = handle.html();
+            var template = Handlebars.compile(source);
+            var html = template(data)
+            var wrap = $('.wrap');
+            wrap.html(html);
+        }
+    });
+    $('.wrap').on('click', 'span', function() {
+        var inner = $(this).html();
+        if (inner === '-') {
+            $(this).html('+');
+            $(this).siblings().hide()
+        } else if (inner === '+') {
+            $(this).html('-');
+            $(this).siblings().show()
         }
     })
 </script>
